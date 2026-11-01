@@ -1,0 +1,20 @@
+# MoMoFit
+
+MoMoFit is an online custom sportswear design studio for basketball jerseys, soccer kits, Polo shirts, T-shirts, and team apparel.
+
+## Important Pages
+
+- Home: https://arawear.online/aijersey/
+- Product list: https://arawear.online/aijersey/products
+- Sitemap: https://arawear.online/aijersey/sitemap.xml
+
+## What The Site Offers
+
+- Online 3D preview for custom team apparel.
+- Product templates for basketball, soccer, Polo, T-shirt, and team clothing.
+- Customizable team names, player numbers, colors, logos, and patterns.
+- Design package export for customer support and production handoff.
+
+## Contact
+
+- Customer support email: ggbone0917@163.com

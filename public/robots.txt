@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /aijersey/
+Disallow: /aijersey/login
+Disallow: /aijersey/register
+Disallow: /aijersey/forgot-password
+Disallow: /aijersey/recharge
+Disallow: /aijersey/import-design
+Disallow: /aijersey/design/
+Disallow: /aijersey/test
+
+User-agent: GPTBot
+Allow: /aijersey/
+
+User-agent: OAI-SearchBot
+Allow: /aijersey/
+
+User-agent: ChatGPT-User
+Allow: /aijersey/
+
+User-agent: ClaudeBot
+Allow: /aijersey/
+
+User-agent: PerplexityBot
+Allow: /aijersey/
+
+Sitemap: https://arawear.online/aijersey/sitemap.xml
