@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <section class="home-hero">
-      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-art" :style="{ backgroundImage: `url(${heroImage})` }" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> 3D JERSEY DESIGNER</p>
@@ -38,6 +38,9 @@
 import BestSellerSection from '../components/home/BestSellerSection.vue'
 import FeaturedProducts from '../components/home/FeaturedProducts.vue'
 import TestimonialsSection from '../components/home/TestimonialsSection.vue'
+import { publicPath } from '../utils/publicPath'
+
+const heroImage = publicPath('/images/home/home-hero.svg')
 
 export default {
   name: 'Home',
