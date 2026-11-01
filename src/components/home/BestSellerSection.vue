@@ -1,5 +1,5 @@
 <template>
-  <section class="relative overflow-hidden bg-slate-50 py-16 pb-20 text-slate-900 dark:bg-slate-950 dark:text-white">
+  <section id="best-seller" class="relative overflow-hidden bg-slate-50 py-16 pb-20 text-slate-900 dark:bg-slate-950 dark:text-white">
     <div class="pointer-events-none absolute -left-40 top-24 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/10"></div>
     <div class="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-cyan-200/30 blur-3xl dark:bg-cyan-500/10"></div>
 
