@@ -1,44 +1,45 @@
 import { publicPath } from '../utils/publicPath';
 
+// Homepage category photography: consistent editorial sportswear imagery from Unsplash.
 export const SceneCategories = [
   {
     id: "Basketball",
     name: '篮球服饰',
-    subtitle: '赛场背心系列 / 特厚排汗网眼',
-    description: '精英篮球背心及运动短裤，特调高弹速干织物与透气网眼，助力热血赛场。',
-    image: publicPath('/images/basketball_flatlay.jpg'),
+    subtitle: 'BASKETBALL / GAME READY',
+    description: '为球队打造专属球衣配色、号码与徽章，让每一次上场都更有辨识度。',
+    image: 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1000&q=85',
     onSale: false
   },
   {
     id: "Football",
     name: '足球服饰',
-    subtitle: '绿茵战袍系列 / 蜂窝超轻透气',
-    description: '经典竖条纹足球训练服与运动短裤，超轻散热纤维，提供全天候畅爽。',
-    image: publicPath('/images/football_flatlay.jpg'),
+    subtitle: 'FOOTBALL / TEAM SPIRIT',
+    description: '从主客场配色到球员号码，设计属于你们球队的绿茵战袍。',
+    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1000&q=85',
     onSale: false
   },
   {
     id: "Couple",
     name: '情侣服饰',
-    subtitle: '情侣T恤系列 / 240g精梳纯棉',
-    description: '高街生活轻量版型，精美质感细绒贴签，情侣撞色日常时尚出街首选。',
-    image: publicPath('/images/couple_tshirt.jpg'),
+    subtitle: 'COUPLE / DAILY STYLE',
+    description: '用统一的色彩与专属图案，把两个人的默契穿进日常。',
+    image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=85',
     onSale: false
   },
   {
     id: "Team",
     name: '团队服饰',
-    subtitle: '精英POLO系列 / 商务活力立领',
-    description: '三色针织高端POLO短袖，舒适挺拔面料，适合班级、运动俱乐部和企业高规格定制。',
-    image: publicPath('/images/team_polo.jpg'),
+    subtitle: 'TEAMWEAR / MADE TOGETHER',
+    description: '适合企业、社团与活动团队的统一着装，兼顾舒适、质感与识别度。',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85',
     onSale: false
   },
   {
     id: "Person",
     name: '个性定制',
-    subtitle: '创意灵感系列 / 无感白胚模版',
-    description: '全棉高挺白底空胚，支持零门槛 AI 微晶徽标快速渲染与一体化高精刺绣。',
-    image: publicPath('/images/creative_tshirt.jpg'),
+    subtitle: 'CUSTOM / YOUR OWN DESIGN',
+    description: '从一件基础款开始，自由组合图案、文字与色彩，做出独一无二的表达。',
+    image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85',
     onSale: false
   }
 ]

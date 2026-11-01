@@ -1,73 +1,84 @@
 <template>
-  <section class="py-16 pb-20 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="best-seller" class="relative overflow-hidden bg-slate-50 py-16 pb-20 text-slate-900 dark:bg-slate-950 dark:text-white">
+    <div class="pointer-events-none absolute -left-40 top-24 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl dark:bg-indigo-500/10"></div>
+    <div class="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-cyan-200/30 blur-3xl dark:bg-cyan-500/10"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <section-title title="设计品类 &middot; 赛场美学">
         <template #action>
-          <button 
+          <button
             @click="router.push('/products')"
-            class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-300 flex items-center gap-2 text-xs shadow-md shadow-indigo-600/15 cursor-pointer active:scale-95"
+            class="group inline-flex cursor-pointer items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-xs font-bold text-white shadow-lg shadow-indigo-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-indigo-500 hover:shadow-indigo-600/30 active:scale-95"
           >
             <span>开始自由设计</span>
-            <font-awesome-icon :icon="['fas', 'arrow-right']" />
+            <font-awesome-icon :icon="['fas', 'arrow-right']" class="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </template>
       </section-title>
-      
-      <!-- Premium Scenic Category Cards in symmetric 5-column grid -->
-      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-        <div v-for="product in products" 
-             :key="product.id" 
-             @click="openDesignPanel(product)"
-             class="group relative h-[384px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 bg-slate-100 dark:bg-slate-900 cursor-pointer border border-slate-150/45 dark:border-slate-800/40"
-             :id="'category-card-' + product.id"
+
+      <div class="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <p class="max-w-xl text-sm leading-6 text-slate-500 dark:text-slate-400">
+          从赛场装备到日常穿搭，选择你的创作方向，把每一份灵感变成专属设计。
+        </p>
+        <span class="hidden text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-400 dark:text-slate-500 sm:block">
+          Find your style · Make it yours
+        </span>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+        <article
+          v-for="(product, index) in products"
+          :key="product.id"
+          :id="'category-card-' + product.id"
+          @click="openDesignPanel(product)"
+          class="group relative isolate min-h-[350px] cursor-pointer overflow-hidden rounded-[1.6rem] border border-white/70 bg-slate-200 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-900/15 dark:border-white/10 dark:bg-slate-900 dark:hover:shadow-black/40 sm:min-h-[390px]"
         >
-          <!-- Adaptive Scenery Image with slow zoom -->
-          <div class="absolute inset-0 w-full h-full">
-            <img :src="product.image" 
-                 :alt="product.name"
-                 class="w-full h-full object-cover object-center transform scale-100 group-hover:scale-105 transition-transform duration-[800ms]"
-                 loading="lazy"
-            >
-          </div>
+          <img
+            :src="product.image"
+            :alt="product.name"
+            class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+            loading="lazy"
+          />
 
-          <!-- Premium Gradient Overlay Scrim for high-contrast reading -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/5 to-slate-950/90 transition-colors duration-500 group-hover:from-slate-950/30 group-hover:to-slate-950/95"></div>
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
 
-          <!-- Glassmorphic Spec Badge -->
-          <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full text-[8.5px] font-extrabold tracking-widest uppercase bg-white/10 dark:bg-slate-950/30 backdrop-blur-md border border-white/20 text-white flex items-center gap-1.5 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>PRO EDITION</span>
-          </div>
-
-          <!-- Content Panel -->
-          <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end min-h-[160px]">
-            <span class="text-[9.5px] font-black tracking-widest text-indigo-400 dark:text-indigo-350 uppercase select-none mb-1">
-              {{ product.subtitle }}
+          <div class="absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5">
+            <span class="rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[9px] font-bold tracking-[0.18em] text-white/90 backdrop-blur-md">
+              COLLECTION
             </span>
-            <h3 class="text-base font-black text-white hover:text-indigo-200 transition-colors tracking-tight select-none mb-1.5">
+            <span class="font-mono text-xs font-semibold tracking-widest text-white/75">
+              0{{ index + 1 }}
+            </span>
+          </div>
+
+          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-5">
+            <div class="mb-3 h-0.5 w-8 rounded-full bg-indigo-400 transition-all duration-500 group-hover:w-14 group-hover:bg-cyan-300"></div>
+            <p class="mb-2 text-[9px] font-bold uppercase tracking-[0.16em] text-indigo-200 sm:text-[10px]">
+              {{ product.subtitle }}
+            </p>
+            <h3 class="mb-2 text-xl font-extrabold tracking-tight text-white sm:text-lg xl:text-xl">
               {{ product.name }}
             </h3>
-            
-            <p class="text-[11px] text-slate-300 line-clamp-2 leading-relaxed mb-4 select-none pr-1 opacity-90 group-hover:opacity-100 transition-opacity">
+            <p class="mb-5 line-clamp-2 min-h-[2.75rem] text-xs leading-[1.4rem] text-white/75">
               {{ product.description }}
             </p>
 
-            <div class="pt-2.5 border-t border-white/10 flex items-center justify-between">
-              <span class="text-[10.5px] font-bold text-white group-hover:text-indigo-350 transition-colors uppercase tracking-widest flex items-center gap-1">
-                立即定制
-                <font-awesome-icon :icon="['fas', 'angle-right']" class="text-[10px] transform group-hover:translate-x-1 transition-transform duration-300" />
+            <div class="flex items-center justify-between border-t border-white/20 pt-3">
+              <span class="text-[10px] font-bold tracking-[0.16em] text-white">
+                开始定制
               </span>
-              <div class="w-7 h-7 rounded-full bg-white/10 dark:bg-slate-900/30 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-[11px] transform group-hover:rotate-45 duration-500">
-                <font-awesome-icon :icon="['fas', 'arrow-right-long']" />
-              </div>
+              <span class="flex h-8 w-8 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 group-hover:rotate-[-45deg] group-hover:border-white group-hover:bg-white group-hover:text-slate-900">
+                <font-awesome-icon :icon="['fas', 'arrow-right']" class="text-xs" />
+              </span>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <design-panel 
+  <design-panel
     v-model:isOpen="isDesignPanelOpen"
     @select-category="handleCategorySelect"
   />
@@ -77,35 +88,24 @@
 import { ref } from 'vue'
 import SectionTitle from './SectionTitle.vue'
 import DesignPanel from './DesignPanel.vue'
-import { useRouter } from 'vue-router';
-import { SceneCategories } from '../../configs/clothes';
+import { useRouter } from 'vue-router'
+import { SceneCategories } from '../../configs/clothes'
 
-const router = useRouter();
-
-// 定义数据
+const router = useRouter()
 const products = ref(SceneCategories)
-
 const isDesignPanelOpen = ref(false)
 
-// 定义方法
 const openDesignPanel = (product) => {
   router.push({
     path: '/products',
-    query: { 
-      design: product.id // 传递设计类型ID
+    query: {
+      design: product.id
     }
-  });
-};
+  })
+}
 
 const handleCategorySelect = (category) => {
   console.log('Selected category:', category)
-  // 处理分类选择逻辑
   isDesignPanelOpen.value = false
-}
-
-// 定义Tailwind的主题颜色
-const colors = {
-  primary: '#4f46e5',
-  secondary: '#06b6d4'
 }
 </script>
