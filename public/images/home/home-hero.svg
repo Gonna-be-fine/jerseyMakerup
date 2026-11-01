@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520">
+<defs>
+ <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d68df"/><stop offset=".48" stop-color="#3345b9"/><stop offset="1" stop-color="#7a42d7"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#8eaeff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity=".08"/></linearGradient>
+ <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="18"/></filter>
+ <pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0L12 12M12 0L0 12" stroke="#fff" stroke-opacity=".12" stroke-width="1"/></pattern>
+</defs>
+<ellipse cx="690" cy="440" rx="260" ry="28" fill="#6d82d9" opacity=".16" filter="url(#shadow)"/>
+<path d="M20 340C180 210 260 390 410 310S610 180 760 280s250 120 420-60" fill="none" stroke="url(#ribbon)" stroke-width="34" opacity=".75"/>
+<path d="M0 400C180 270 260 430 420 350S650 220 800 320s250 110 420-80" fill="none" stroke="#fff" stroke-width="4" opacity=".6"/>
+<path d="M170 220C330 130 420 250 570 180S850 80 1040 170" fill="none" stroke="#b8c9ff" stroke-width="18" opacity=".28"/>
+<g transform="translate(570 18) rotate(-8 240 220)">
+ <path d="M145 65L220 22Q270 4 320 24L395 67 505 112 456 235 400 211 380 472Q267 518 125 474L105 211 49 235 0 112 108 67Z" fill="url(#cloth)" stroke="#f4f7ff" stroke-width="10" stroke-linejoin="round"/>
+ <path d="M145 65Q170 105 260 105Q350 105 395 67L364 18Q260 76 175 18Z" fill="#111d52" stroke="#eaf1ff" stroke-width="9"/>
+ <path d="M105 211L49 235 0 112 108 67 154 145 110 180Z" fill="#243a9e" opacity=".9"/>
+ <path d="M400 211L456 235 505 112 395 67 355 145 398 180Z" fill="#7248c7" opacity=".92"/>
+ <path d="M118 195Q260 145 420 190L394 250Q250 208 120 270Z" fill="#1d4fb9" opacity=".75"/>
+ <path d="M120 292Q260 230 395 280L386 324Q250 280 116 342Z" fill="#6a43c4" opacity=".75"/>
+ <path d="M115 380Q260 322 390 360" fill="none" stroke="#69baff" stroke-width="13" opacity=".7"/>
+ <path d="M110 425Q260 365 390 405" fill="none" stroke="#b3caff" stroke-width="7" opacity=".6"/>
+ <path d="M108 67L154 145 110 180M395 67L355 145 398 180" fill="none" stroke="#dce8ff" stroke-width="7" opacity=".75"/>
+ <path d="M165 155L210 136 226 145 183 166Z" fill="#fff" opacity=".95"/>
+ <path d="M278 140L310 125 329 130 295 150Z" fill="#fff" opacity=".9"/>
+ <text x="260" y="236" fill="#fff" font-family="Arial,sans-serif" font-size="64" font-weight="900" text-anchor="middle" font-style="italic">M</text>
+ <path d="M125 474Q260 505 380 472" fill="none" stroke="#0c1d58" stroke-width="10" opacity=".5"/>
+ <path d="M125 474Q260 505 380 472" fill="none" stroke="#e7edff" stroke-width="3" opacity=".8"/>
+ <path d="M0 112L49 235M505 112L456 235" stroke="#fff" stroke-width="8" opacity=".85"/>
+ <path d="M90 80L160 180 210 220 260 270 320 210 390 130" fill="none" stroke="url(#shine)" stroke-width="17" opacity=".5"/>
+ <path d="M100 110L420 110 390 460 130 460Z" fill="url(#mesh)" opacity=".55"/>
+</g>
+</svg>
