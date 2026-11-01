@@ -1,111 +1,123 @@
 <template>
-  <section class="py-16 pb-20 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section-title title="设计品类 &middot; 赛场美学">
-        <template #action>
-          <button 
-            @click="router.push('/products')"
-            class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-6 rounded-xl transition-all duration-300 flex items-center gap-2 text-xs shadow-md shadow-indigo-600/15 cursor-pointer active:scale-95"
-          >
-            <span>开始自由设计</span>
-            <font-awesome-icon :icon="['fas', 'arrow-right']" />
-          </button>
-        </template>
-      </section-title>
-      
-      <!-- Premium Scenic Category Cards in symmetric 5-column grid -->
-      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-        <div v-for="product in products" 
-             :key="product.id" 
-             @click="openDesignPanel(product)"
-             class="group relative h-[384px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 bg-slate-100 dark:bg-slate-900 cursor-pointer border border-slate-150/45 dark:border-slate-800/40"
-             :id="'category-card-' + product.id"
-        >
-          <!-- Adaptive Scenery Image with slow zoom -->
-          <div class="absolute inset-0 w-full h-full">
-            <img :src="product.image" 
-                 :alt="product.name"
-                 class="w-full h-full object-cover object-center transform scale-100 group-hover:scale-105 transition-transform duration-[800ms]"
-                 loading="lazy"
-            >
-          </div>
-
-          <!-- Premium Gradient Overlay Scrim for high-contrast reading -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
-
-          <!-- Glassmorphic Spec Badge -->
-          <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full text-[8.5px] font-extrabold tracking-widest uppercase bg-white/10 dark:bg-slate-950/30 backdrop-blur-md border border-white/20 text-white flex items-center gap-1.5 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>PRO EDITION</span>
-          </div>
-
-          <!-- Content Panel -->
-          <div class="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end min-h-[160px]">
-            <span class="text-[9.5px] font-black tracking-widest text-indigo-400 dark:text-indigo-350 uppercase select-none mb-1">
-              {{ product.subtitle }}
-            </span>
-            <h3 class="text-base font-black text-white hover:text-indigo-200 transition-colors tracking-tight select-none mb-1.5">
-              {{ product.name }}
-            </h3>
-            
-            <p class="text-[11px] text-slate-300 line-clamp-2 leading-relaxed mb-4 select-none pr-1 opacity-90 group-hover:opacity-100 transition-opacity">
-              {{ product.description }}
-            </p>
-
-            <div class="pt-2.5 border-t border-white/10 flex items-center justify-between">
-              <span class="text-[10.5px] font-bold text-white group-hover:text-indigo-350 transition-colors uppercase tracking-widest flex items-center gap-1">
-                立即定制
-                <font-awesome-icon :icon="['fas', 'angle-right']" class="text-[10px] transform group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div class="w-7 h-7 rounded-full bg-white/10 dark:bg-slate-900/30 backdrop-blur-md border border-white/25 flex items-center justify-center text-white text-[11px] transform group-hover:rotate-45 duration-500">
-                <font-awesome-icon :icon="['fas', 'arrow-right-long']" />
-              </div>
-            </div>
-          </div>
+  <section class="category-section">
+    <div class="category-inner">
+      <div class="category-heading">
+        <div>
+          <p class="section-eyebrow"><span></span> DESIGN CATEGORIES</p>
+          <h2>设计品类 · 赛场美学</h2>
+          <p class="section-description">从专业到个性，满足不同场景的设计需求</p>
         </div>
+        <button class="category-all" type="button" @click="router.push('/products')">
+          开始自由设计 <font-awesome-icon :icon="['fas', 'arrow-right']" />
+        </button>
+      </div>
+
+      <div class="category-grid">
+        <button
+          v-for="product in products"
+          :key="product.id"
+          type="button"
+          class="category-card"
+          :class="'category-' + product.id.toLowerCase()"
+          @click="openDesignPanel(product)"
+        >
+          <div class="category-card-heading">
+            <span class="category-icon"><font-awesome-icon :icon="categoryIcon(product.id)" /></span>
+            <span class="category-title-wrap">
+              <strong>{{ product.name }}</strong>
+              <small>{{ categoryTagline(product.id) }}</small>
+            </span>
+          </div>
+          <div class="category-product-image">
+            <img :src="product.image" :alt="product.name" loading="lazy">
+          </div>
+          <span class="category-caption">{{ categoryCaption(product.id) }}</span>
+          <span class="category-arrow"><font-awesome-icon :icon="['fas', 'arrow-right']" /></span>
+        </button>
       </div>
     </div>
+    <design-panel v-model:isOpen="isDesignPanelOpen" @select-category="handleCategorySelect" />
   </section>
-
-  <design-panel 
-    v-model:isOpen="isDesignPanelOpen"
-    @select-category="handleCategorySelect"
-  />
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import SectionTitle from './SectionTitle.vue'
 import DesignPanel from './DesignPanel.vue'
-import { useRouter } from 'vue-router';
-import { SceneCategories } from '../../configs/clothes';
+import { useRouter } from 'vue-router'
+import { SceneCategories } from '../../configs/clothes'
 
-const router = useRouter();
-
-// 定义数据
+const router = useRouter()
 const products = ref(SceneCategories)
-
 const isDesignPanelOpen = ref(false)
 
-// 定义方法
+const categoryIcon = (id) => ({
+  Basketball: ['fas', 'basketball'],
+  Football: ['fas', 'futbol'],
+  Couple: ['fas', 'heart'],
+  Team: ['fas', 'users'],
+  Person: ['fas', 'palette'],
+}[id] || ['fas', 'shirt'])
+
+const categoryTagline = (id) => ({
+  Basketball: '热血篮场，尽显锋芒',
+  Football: '绿茵场上，为热爱而战',
+  Couple: '一份专属，惟有爱',
+  Team: '凝聚团队，创造不凡',
+  Person: '释放创意，定义风格',
+}[id] || '自由创作你的风格')
+
+const categoryCaption = (id) => ({
+  Basketball: '设计专属篮球队服',
+  Football: '打造你的专属球衣',
+  Couple: '定制专属情侣信物',
+  Team: '打造团队专属战袍',
+  Person: '随心设计，独一无二',
+}[id] || '立即开始设计')
+
 const openDesignPanel = (product) => {
-  router.push({
-    path: '/products',
-    query: { 
-      design: product.id // 传递设计类型ID
-    }
-  });
-};
-
-const handleCategorySelect = (category) => {
-  console.log('Selected category:', category)
-  // 处理分类选择逻辑
-  isDesignPanelOpen.value = false
+  router.push({ path: '/products', query: { design: product.id } })
 }
-
-// 定义Tailwind的主题颜色
-const colors = {
-  primary: '#4f46e5',
-  secondary: '#06b6d4'
-}
+const handleCategorySelect = () => { isDesignPanelOpen.value = false }
 </script>
+
+<style scoped>
+.category-section { padding: 24px 0 42px; background: transparent; }
+.category-inner { width: min(1440px, calc(100% - 64px)); margin: 0 auto; }
+.category-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+.section-eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; color: #9aa4b8; font-size: 11px; font-weight: 800; letter-spacing: .13em; }
+.section-eyebrow span { width: 3px; height: 13px; background: #6758f4; border-radius: 4px; transform: skew(-20deg); }
+.category-heading h2 { margin: 0; color: #17243e; font-size: clamp(25px, 2.4vw, 32px); font-weight: 900; letter-spacing: -.035em; }
+.section-description { margin: 7px 0 0; color: #758198; font-size: 14px; }
+.category-all { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; padding: 11px 22px; border: 0; border-radius: 999px; background: #5d50ef; color: #fff; font-size: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(93,80,239,.2); }
+.category-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.category-card { position: relative; display: flex; flex-direction: column; min-width: 0; height: 292px; padding: 17px 16px 15px; border: 1px solid rgba(255,255,255,.85); border-radius: 23px; overflow: hidden; text-align: left; cursor: pointer; color: #17243e; box-shadow: 0 10px 28px rgba(44,65,120,.055); transition: transform .25s ease, box-shadow .25s ease; }
+.category-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(44,65,120,.12); }
+.category-basketball { background: linear-gradient(145deg,#f0efff,#e5e4ff); }
+.category-football { background: linear-gradient(145deg,#eefaf8,#dff4ef); }
+.category-couple { background: linear-gradient(145deg,#fff3f5,#ffe3e9); }
+.category-team { background: linear-gradient(145deg,#f2f7ed,#e4f0dc); }
+.category-person { background: linear-gradient(145deg,#eef6ff,#dcecff); }
+.category-card-heading { display: flex; align-items: center; gap: 11px; position: relative; z-index: 2; }
+.category-icon { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%; background: rgba(255,255,255,.72); color: #293a63; box-shadow: 0 4px 12px rgba(47,66,116,.08); font-size: 17px; }
+.category-title-wrap { display: flex; flex-direction: column; min-width: 0; }
+.category-title-wrap strong { font-size: 15px; font-weight: 900; line-height: 1.3; }
+.category-title-wrap small { margin-top: 3px; color: #738097; font-size: 10px; font-weight: 600; white-space: nowrap; }
+.category-product-image { position: absolute; inset: 68px 0 28px; display: flex; align-items: center; justify-content: center; }
+.category-product-image img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .4s ease; }
+.category-card:hover .category-product-image img { transform: scale(1.06) rotate(-1deg); }
+.category-caption { position: absolute; left: 17px; bottom: 16px; z-index: 2; color: #1d2942; font-size: 11px; font-weight: 900; }
+.category-arrow { position: absolute; right: 15px; bottom: 12px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #263451; background: rgba(255,255,255,.88); box-shadow: 0 4px 12px rgba(35,54,94,.08); transition: transform .25s ease; }
+.category-card:hover .category-arrow { transform: translateX(3px); }
+@media (max-width: 1100px) { .category-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 720px) {
+  .category-inner { width: calc(100% - 36px); }
+  .category-heading { align-items: flex-start; flex-direction: column; }
+  .category-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .category-card { height: 260px; padding: 14px 12px; border-radius: 18px; }
+  .category-title-wrap strong { font-size: 13px; }
+  .category-title-wrap small { font-size: 9px; }
+  .category-icon { width: 31px; height: 31px; flex-basis: 31px; font-size: 14px; }
+  .category-caption { left: 12px; font-size: 10px; }
+}
+@media (max-width: 390px) { .category-grid { grid-template-columns: 1fr; } .category-card { height: 250px; } }
+</style>
