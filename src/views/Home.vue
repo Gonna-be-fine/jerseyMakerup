@@ -61,7 +61,7 @@ export default {
   overflow: hidden;
 }
 .home-hero {
-  min-height: 350px;
+  min-height: 300px;
   height: min(700px, 43vw);
   position: relative;
   display: flex;
@@ -123,15 +123,15 @@ export default {
 .hero-scroll-hint { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; color: #a3abc0; font-size: 9px; letter-spacing: .16em; font-weight: 800; }
 .hero-scroll-hint span { width: 5px; height: 5px; border-radius: 50%; background: #8e82f7; box-shadow: 0 0 0 4px rgba(142,130,247,.12); }
 @media (max-width: 900px) {
-  .home-hero { height: auto; min-height: 430px; }
-  .hero-art { inset: 0 0 0 24%; opacity: .56; background-position: center right; }
+  .home-hero {  min-height: 300px; }
+  .hero-art {  opacity: .56; background-position: center center; }
   .hero-inner { width: min(100% - 40px, 720px); }
   .hero-copy { max-width: 540px; padding: 68px 0 74px; }
   .hero-proof { flex-wrap: wrap; gap: 10px; margin-top: 25px; }
 }
 @media (max-width: 560px) {
-  .home-hero { height: 580px; min-height: 580px; align-items: flex-start; }
-  .hero-art { top: 175px; right: 0; bottom: auto; left: 0; width: 100%; height: 300px; max-height: 300px; opacity: .65; background-size: auto 300px; background-position: right center; }
+  .home-hero {  align-items: flex-start; }
+  .hero-art { top: 0; right: 0; bottom: auto; left: 0; width: 100%; height: 300px; max-height: 300px; opacity: .65; background-size: auto 300px; background-position: center center; }
   .hero-inner { width: calc(100% - 36px); }
   .hero-copy { padding: 52px 0 160px; }
   .hero-copy h1 { font-size: 36px; }
