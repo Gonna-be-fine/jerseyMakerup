@@ -166,7 +166,7 @@ export default {
 
 <style scoped>
 .featured-products { padding: 18px 0 68px; background: transparent; }
-.featured-inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; }
+.featured-inner { width: min(1440px, calc(100% - 64px)); margin: 0 auto; padding: 0; box-sizing: border-box; }
 .section-heading { position: relative; margin-bottom: 24px; text-align: left; }
 .section-heading::before { content: ' /  FEATURED PRODUCTS'; display: block; margin-bottom: 7px; color: #9aa4b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
 .section-heading h2 { color: #17243e; font-size: clamp(25px,2.4vw,32px); font-weight: 900; line-height: 1.2; letter-spacing: -.035em; }
@@ -192,5 +192,5 @@ export default {
 .modal-image img { width: 100%; border-radius: 14px; }
 .modal-content { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 @media(max-width:1000px) { .products-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media(max-width:560px) { .featured-inner { padding: 0 18px; } .products-grid { gap: 12px; } .product-info { padding: 12px; } .modal-grid { grid-template-columns: 1fr; } }
+@media(max-width:720px) { .featured-inner { width: calc(100% - 36px); } }\n@media(max-width:560px) { .products-grid { gap: 12px; } .product-info { padding: 12px; } .modal-grid { grid-template-columns: 1fr; } }
 </style>
