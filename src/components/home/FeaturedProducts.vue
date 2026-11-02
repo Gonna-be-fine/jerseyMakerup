@@ -165,7 +165,7 @@ export default {
 </script>
 
 <style scoped>
-.featured-products { padding: 18px 0 68px; background: transparent; }
+.featured-products { padding: 18px 0 24px; background: transparent; }
 .featured-inner { width: min(1440px, calc(100% - 64px)); margin: 0 auto; padding: 0; box-sizing: border-box; }
 .section-heading { position: relative; margin-bottom: 24px; text-align: left; }
 .section-heading::before { content: ' /  FEATURED PRODUCTS'; display: block; margin-bottom: 7px; color: #9aa4b8; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
