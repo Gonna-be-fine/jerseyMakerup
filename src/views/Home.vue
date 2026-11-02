@@ -131,7 +131,7 @@ export default {
 }
 @media (max-width: 560px) {
   .home-hero { height: 580px; min-height: 580px; align-items: flex-start; }
-  .hero-art { inset: 175px -100px 0 0; opacity: .65; background-size: auto 330px; background-position: right bottom; }
+  .hero-art { top: 175px; right: 0; bottom: auto; left: 0; width: 100%; height: 300px; max-height: 300px; opacity: .65; background-size: auto 300px; background-position: right center; }
   .hero-inner { width: calc(100% - 36px); }
   .hero-copy { padding: 52px 0 160px; }
   .hero-copy h1 { font-size: 36px; }
