@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <section class="home-hero">
-      <div class="hero-art" :style="{ '--hero-background-image': `url(&quot;${heroImage}&quot;)` }" aria-hidden="true"></div>
+      <div class="hero-art" :style="{ backgroundImage: `url(${heroImage})` }" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> 3D JERSEY DESIGNER</p>
@@ -76,7 +76,7 @@ export default {
   position: absolute;
   z-index: -1;
   inset: 0 0 0 32%;
-  background-image: var(--hero-background-image);\n  background-position: center right;\n  background-size: cover;\n  background-repeat: no-repeat;
+  background-image: none;\n  background-position: center right;\n  background-size: cover;\n  background-repeat: no-repeat;
   opacity: .98;
   pointer-events: none;
 }
