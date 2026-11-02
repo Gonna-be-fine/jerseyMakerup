@@ -84,13 +84,7 @@ const handleCategorySelect = () => { isDesignPanelOpen.value = false }
 .category-section {
   position: relative;
   padding: 34px 0 54px;
-  background-color: #f7f8ff;
-  background-image:
-    linear-gradient(180deg, rgba(248, 249, 255, .76), rgba(250, 251, 255, .9)),
-    url('/images/types/bg.jpg');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: transparent;
 }
 .category-inner { width: min(1440px, calc(100% - 64px)); margin: 0 auto; }
 .category-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
@@ -100,34 +94,35 @@ const handleCategorySelect = () => { isDesignPanelOpen.value = false }
 .section-description { margin: 7px 0 0; color: #758198; font-size: 14px; }
 .category-all { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; padding: 11px 22px; border: 0; border-radius: 999px; background: #5d50ef; color: #fff; font-size: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 8px 20px rgba(93,80,239,.2); }
 .category-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
-.category-card { position: relative; display: flex; flex-direction: column; min-width: 0; height: 292px; padding: 17px 16px 15px; border: 1px solid rgba(255,255,255,.85); border-radius: 23px; overflow: hidden; text-align: left; cursor: pointer; color: #17243e; box-shadow: 0 10px 28px rgba(44,65,120,.055); transition: transform .25s ease, box-shadow .25s ease; }
-.category-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(44,65,120,.12); }
-.category-basketball { background: linear-gradient(145deg,#f0efff,#e5e4ff); }
-.category-football { background: linear-gradient(145deg,#eefaf8,#dff4ef); }
-.category-couple { background: linear-gradient(145deg,#fff3f5,#ffe3e9); }
-.category-team { background: linear-gradient(145deg,#f2f7ed,#e4f0dc); }
-.category-person { background: linear-gradient(145deg,#eef6ff,#dcecff); }
+.category-card { position: relative; display: flex; flex-direction: column; min-width: 0; height: 320px; padding: 0; border: 0; border-radius: 0; overflow: visible; text-align: left; cursor: pointer; color: #17243e; background: transparent; box-shadow: none; transition: transform .25s ease; }
+.category-card:hover { transform: translateY(-4px); box-shadow: none; }
+
+
+
+
+
 .category-card-heading { display: flex; align-items: center; gap: 11px; position: relative; z-index: 2; }
 .category-icon { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%; background: rgba(255,255,255,.72); color: #293a63; box-shadow: 0 4px 12px rgba(47,66,116,.08); font-size: 17px; }
 .category-title-wrap { display: flex; flex-direction: column; min-width: 0; }
 .category-title-wrap strong { font-size: 15px; font-weight: 900; line-height: 1.3; }
 .category-title-wrap small { margin-top: 3px; color: #738097; font-size: 10px; font-weight: 600; white-space: nowrap; }
-.category-product-image { position: absolute; inset: 68px 0 28px; display: flex; align-items: center; justify-content: center; }
-.category-product-image img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .4s ease; }
-.category-card:hover .category-product-image img { transform: scale(1.06) rotate(-1deg); }
-.category-caption { position: absolute; left: 17px; bottom: 16px; z-index: 2; color: #1d2942; font-size: 11px; font-weight: 900; }
-.category-arrow { position: absolute; right: 15px; bottom: 12px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #263451; background: rgba(255,255,255,.88); box-shadow: 0 4px 12px rgba(35,54,94,.08); transition: transform .25s ease; }
+.category-product-image { position: absolute; inset: 68px 0 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 20px; background: transparent; }
+.category-product-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: inherit; transition: transform .4s ease; }
+.category-card:hover .category-product-image img { transform: scale(1.035); }
+.category-caption { position: absolute; left: 14px; bottom: 13px; z-index: 2; color: #1d2942; font-size: 11px; font-weight: 900; text-shadow: 0 1px 8px rgba(255,255,255,.85); }
+.category-arrow { position: absolute; right: 12px; bottom: 7px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #263451; background: rgba(255,255,255,.88); box-shadow: 0 4px 12px rgba(35,54,94,.08); transition: transform .25s ease; }
 .category-card:hover .category-arrow { transform: translateX(3px); }
 @media (max-width: 1100px) { .category-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media (max-width: 720px) {
   .category-inner { width: calc(100% - 36px); }
   .category-heading { align-items: flex-start; flex-direction: column; }
   .category-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-  .category-card { height: 260px; padding: 14px 12px; border-radius: 18px; }
+  .category-card { height: 285px; padding: 0; border-radius: 0; }
   .category-title-wrap strong { font-size: 13px; }
   .category-title-wrap small { font-size: 9px; }
   .category-icon { width: 31px; height: 31px; flex-basis: 31px; font-size: 14px; }
+  .category-product-image { inset: 62px 0 0; border-radius: 16px; }
   .category-caption { left: 12px; font-size: 10px; }
 }
-@media (max-width: 390px) { .category-grid { grid-template-columns: 1fr; } .category-card { height: 250px; } }
+@media (max-width: 390px) { .category-grid { grid-template-columns: 1fr; } .category-card { height: 280px; } }
 </style>
