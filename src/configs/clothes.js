@@ -4,41 +4,41 @@ export const SceneCategories = [
   {
     id: "Basketball",
     name: '篮球服饰',
-    subtitle: '赛场背心系列 / 特厚排汗网眼',
-    description: '精英篮球背心及运动短裤，特调高弹速干织物与透气网眼，助力热血赛场。',
-    image: publicPath('/images/home/category-basketball.svg'),
+    subtitle: '热血球场，尽显锋芒',
+    description: '为球队打造专属球衣配色、号码与徽章，让每一次上场都更有辨识度。',
+    image: publicPath('/images/types/1.jpg'),
     onSale: false
   },
   {
     id: "Football",
     name: '足球服饰',
-    subtitle: '绿茵战袍系列 / 蜂窝超轻透气',
-    description: '经典足球训练服与运动短裤，超轻散热纤维，提供全天候畅爽。',
-    image: publicPath('/images/home/category-football.svg'),
+    subtitle: '绿茵场上，为热爱而战',
+    description: '从主客场配色到球员号码，设计属于你们球队的绿茵战袍。',
+    image: publicPath('/images/types/2.jpg'),
     onSale: false
   },
   {
     id: "Couple",
     name: '情侣服饰',
-    subtitle: '情侣T恤系列 / 240g精梳纯棉',
-    description: '高街生活轻量版型，精美质感细节，情侣撞色日常时尚出街首选。',
-    image: publicPath('/images/home/category-couple.svg'),
+    subtitle: '一起穿，更有爱',
+    description: '用统一的色彩与专属图案，把两个人的默契穿进日常。',
+    image: publicPath('/images/types/3.jpg'),
     onSale: false
   },
   {
     id: "Team",
     name: '团队服饰',
-    subtitle: '精英POLO系列 / 商务活力立领',
-    description: '舒适挺拔面料，适合班级、运动俱乐部和企业团队定制。',
-    image: publicPath('/images/home/category-team.svg'),
+    subtitle: '凝聚团队，创造不凡',
+    description: '适合企业、社团与活动团队的统一着装，兼顾舒适、质感与识别度。',
+    image: publicPath('/images/types/4.jpg'),
     onSale: false
   },
   {
     id: "Person",
     name: '个性定制',
-    subtitle: '创意灵感系列 / 自由发挥',
-    description: '释放你的创意，从配色、图案到专属标识，打造独一无二的设计。',
-    image: publicPath('/images/home/category-custom.svg'),
+    subtitle: '释放灵感，定义风格',
+    description: '从一件基础款开始，自由组合图案、文字与色彩，做出独一无二的表达。',
+    image: publicPath('/images/types/5.jpg'),
     onSale: false
   }
 ]
