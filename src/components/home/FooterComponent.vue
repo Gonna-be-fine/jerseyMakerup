@@ -76,11 +76,11 @@ export default {
 .footer {
   background: var(--background-color);
   color: var(--text-color);
-  padding: 4rem 2rem 1rem;
+  padding: 4rem 0 1rem;
 }
 
 .footer-content {
-  max-width: var(--container-width);
+  width: min(1440px, calc(100% - 64px));
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.4fr 0.9fr 0.9fr 1.2fr;
@@ -168,7 +168,7 @@ export default {
 }
 
 .footer-bottom {
-  max-width: var(--container-width);
+  width: min(1440px, calc(100% - 64px));
   margin: 2rem auto 0;
   padding-top: 2rem;
   border-top: 1px solid var(--border-color);
@@ -198,7 +198,12 @@ export default {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 3rem 1rem 1rem;
+    padding: 3rem 0 1rem;
+  }
+
+  .footer-content,
+  .footer-bottom {
+    width: calc(100% - 36px);
   }
 
   .footer-content {
