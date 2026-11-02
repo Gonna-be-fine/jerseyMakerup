@@ -81,7 +81,17 @@ const handleCategorySelect = () => { isDesignPanelOpen.value = false }
 </script>
 
 <style scoped>
-.category-section { padding: 24px 0 42px; background: transparent; }
+.category-section {
+  position: relative;
+  padding: 34px 0 54px;
+  background-color: #f7f8ff;
+  background-image:
+    linear-gradient(180deg, rgba(248, 249, 255, .76), rgba(250, 251, 255, .9)),
+    url('/images/types/bg.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .category-inner { width: min(1440px, calc(100% - 64px)); margin: 0 auto; }
 .category-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
 .section-eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; color: #9aa4b8; font-size: 11px; font-weight: 800; letter-spacing: .13em; }
