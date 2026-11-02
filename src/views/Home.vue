@@ -62,7 +62,7 @@ export default {
 }
 .home-hero {
   min-height: 350px;
-  height: min(570px, 43vw);
+  height: min(700px, 43vw);
   position: relative;
   display: flex;
   align-items: center;
@@ -73,10 +73,15 @@ export default {
     linear-gradient(112deg, #f9faff 0%, #f1f3ff 54%, #dce8ff 100%);
 }
 .hero-art {
+  width: 100%;
+  height: 100%;
   position: absolute;
   z-index: -1;
-  inset: 0 0 0 32%;
-  background-image: none;\n  background-position: center right;\n  background-size: cover;\n  background-repeat: no-repeat;
+  /* inset: 0 0 0 32%; */
+  background-image: none;  
+  background-position: center center; 
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: .98;
   pointer-events: none;
 }
