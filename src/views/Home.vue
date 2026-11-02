@@ -130,7 +130,7 @@ export default {
   .hero-proof { flex-wrap: wrap; gap: 10px; margin-top: 25px; }
 }
 @media (max-width: 560px) {
-  .home-hero { min-height: 510px; align-items: flex-start; }
+  .home-hero { height: 580px; min-height: 580px; align-items: flex-start; }
   .hero-art { inset: 175px -100px 0 0; opacity: .65; background-size: auto 330px; background-position: right bottom; }
   .hero-inner { width: calc(100% - 36px); }
   .hero-copy { padding: 52px 0 160px; }
