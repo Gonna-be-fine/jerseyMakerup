@@ -40,7 +40,7 @@ import FeaturedProducts from '../components/home/FeaturedProducts.vue'
 import TestimonialsSection from '../components/home/TestimonialsSection.vue'
 import { publicPath } from '../utils/publicPath'
 
-const heroImage = publicPath('/images/home/home-hero.svg')
+const heroImage = publicPath('/images/types/bg.jpg')
 
 export default {
   name: 'Home',
