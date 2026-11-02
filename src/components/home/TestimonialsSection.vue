@@ -1,6 +1,6 @@
 <template>
   <section class="py-16 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="home-content-container">
       <div class="text-center mb-12">
         <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">用户真实体验</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-1 mb-3 font-primary">客户评价</h2>
@@ -77,3 +77,14 @@ export default {
   }
 }
 </script> 
+<style scoped>
+.home-content-container {
+  width: min(1440px, calc(100% - 64px));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+@media (max-width: 720px) {
+  .home-content-container { width: calc(100% - 36px); }
+}
+</style>
