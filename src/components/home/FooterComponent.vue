@@ -196,7 +196,7 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .footer {
     padding: 3rem 0 1rem;
   }
@@ -204,6 +204,7 @@ export default {
   .footer-content,
   .footer-bottom {
     width: calc(100% - 36px);
+    box-sizing: border-box;
   }
 
   .footer-content {
